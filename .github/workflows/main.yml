@@ -27,7 +27,7 @@ jobs:
       - uses: svenstaro/upload-release-action@v2
         with:
           tag: nightly
-          file: JLRS.dll, JLRS.cfg
+          file: JLRS.dll
           overwrite: true
           file_glob: true
           repo_token: ${{secrets.GITHUB_TOKEN}}
