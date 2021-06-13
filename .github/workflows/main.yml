@@ -28,6 +28,7 @@ jobs:
         with:
           tag: nightly
           file: JLRS.dll
+          file: JLRS.cfg
           overwrite: true
           file_glob: true
           repo_token: ${{secrets.GITHUB_TOKEN}}
