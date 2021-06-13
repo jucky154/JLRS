@@ -22,12 +22,12 @@ jobs:
       - run: ./zbuild-ubuntu
       - uses: crazy-max/ghaction-upx@v1
         with:
-          files: jlrs.dll
+          files: JLRS.dll
           args: --lzma -fq
       - uses: svenstaro/upload-release-action@v2
         with:
           tag: nightly
-          file: jlrs.dll
+          file: JLRS.dll
           overwrite: true
           file_glob: true
           repo_token: ${{secrets.GITHUB_TOKEN}}
