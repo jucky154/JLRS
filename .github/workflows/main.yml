@@ -22,7 +22,7 @@ jobs:
       - run: ./zbuild-ubuntu
       - uses: crazy-max/ghaction-upx@v1
         with:
-          files: real.dll
+          files: jlrs.dll
           args: --lzma -fq
       - uses: svenstaro/upload-release-action@v2
         with:
