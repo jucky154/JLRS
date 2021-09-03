@@ -1,4 +1,4 @@
-/*
+ /*
  provides the zLog programming interface to the Go language.
  Copyright (C) 2020 JA1ZLO.
 */
@@ -8,38 +8,34 @@ import (
 	_ "embed"
 	"strings"
 	"strconv"
-	"github.com/nextzlog/zylo"
 )
 
 
-//go:embed JLRS.dat
-var JLRS string
+//go:embed yl.dat
+var cityMultiList string
 
-func zcities() string {
-	return JLRS
+func init() {
+	CityMultiList = cityMultiList
+	OnLaunchEvent = onLaunchEvent
+	OnFinishEvent = onFinishEvent
+	OnAttachEvent = onAttachEvent
+	OnVerifyEvent = onVerifyEvent
+	OnPointsEvent = onPointsEvent
 }
 
-func zlaunch() {
-	zylo.Notify("CQ!")
+func onLaunchEvent() {
+	DisplayToast("CQ!")
 }
 
-func zfinish() {
-	zylo.Notify("Bye")
+func onFinishEvent() {
+	DisplayToast("Bye")
 }
 
-func zattach(test string, path string) {
+func onAttachEvent(test string, path string) {
+	DisplayToast(test)
 }
 
-func zdetach() {
-}
-
-func zinsert(qso *zylo.QSO) {
-}
-
-func zdelete(qso *zylo.QSO) {
-}
-
-func zverify(qso *zylo.QSO) {
+func onVerifyEvent(qso *QSO) {
 	//multi
 	call := strings.TrimSpace(qso.GetCall())
 	if call != ""{
@@ -90,16 +86,6 @@ func zverify(qso *zylo.QSO) {
 	}	
 }
 
-func zpoints(score, mults int) int {
+func onPointsEvent(score, mults int) int {
 	return score * mults 
 }
-
-func zeditor(key int, name string) bool {
-	return	false
-}
-
-func zbutton(btn int, name string) bool {
-	return false
-}
-
-func main() {}
