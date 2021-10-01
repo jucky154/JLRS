@@ -11,7 +11,7 @@ import (
 )
 
 
-//go:embed yl.dat
+//go:embed JLRS.dat
 var cityMultiList string
 
 func init() {
